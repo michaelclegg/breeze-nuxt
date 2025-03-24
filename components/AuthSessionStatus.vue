@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="status" class="font-medium text-sm text-green-600">
+  <UAlert v-if="status" color="neutral" :title="status">
     {{ status }}
-  </div>
+  </UAlert>
 </template>

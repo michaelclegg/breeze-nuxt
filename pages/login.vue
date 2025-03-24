@@ -42,45 +42,40 @@ const {
 
     <form @submit.prevent="submit">
       <!-- Email Address -->
-      <div>
-        <Label for="email">Email</Label>
-        <Input
+      <UFormField label="Email" for="email">
+        <UInput
           id="email"
           type="email"
           class="block mt-1 w-full"
           v-model="data.email"
-          :errors="errors.email?.[0]"
+          :error="errors.email?.[0]"
           required
           autoFocus
         />
-      </div>
+      </UFormField>
 
       <!-- Password -->
-      <div class="mt-4">
-        <Label for="password">Password</Label>
-        <Input
+      <UFormField label="Password" for="password" class="mt-4">
+        <UInput
           id="password"
           type="password"
           class="block mt-1 w-full"
           v-model="data.password"
-          :errors="errors.password"
+          :error="errors.password"
           required
           autoComplete="current-password"
         />
-      </div>
+      </UFormField>
 
       <!-- Remember Me -->
       <div class="block mt-4">
-        <label for="remember" class="inline-flex items-center">
-          <input
-            id="remember"
-            type="checkbox"
-            name="remember"
-            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            v-model="data.remember"
-          />
+        <UCheckbox
+          id="remember"
+          v-model="data.remember"
+          class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        >
           <span class="ml-2 text-sm text-gray-600"> Remember me </span>
-        </label>
+        </UCheckbox>
       </div>
 
       <div class="flex items-center justify-end mt-4">
@@ -91,7 +86,7 @@ const {
           Forgot your password?
         </NuxtLink>
 
-        <Button class="ml-3" :disabled="inProgress">Login</Button>
+        <UButton class="ml-3" :disabled="inProgress">Login</UButton>
       </div>
     </form>
   </AuthCard>
